@@ -1,0 +1,149 @@
+*{
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    background-color: white;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+.bodywidth70{
+    width: 70%;
+    margin-left: 15%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.bodypadding10{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.bg-grad{
+    background: radial-gradient(circle, rgba(211,240,172,1) 13%, rgba(251,252,249,1) 100%);
+}
+
+.go-back{
+    position:absolute;
+    top:25px;
+    right:20%;
+}
+
+.warning{
+    color: darkgoldenrod;
+    background-color: rgb(242, 242, 180);
+}
+.error{
+    color: red;
+    background-color: rgb(243, 208, 213);
+}
+.success{
+    color: green;
+    background-color: rgb(206, 241, 206);
+}
+.warning, .error, .success{
+    border-radius: 8px;
+    padding: 10px;
+    width: 60%;
+    margin-top:5px;
+    margin-bottom:5px;
+    list-style-type: none;
+}
+
+/*Del muro*/
+
+.posted_by{
+    color: slategray;
+    font-weight: 100;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.texto_normal{
+    color: black;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 0.9em;
+}
+
+#form-message{
+    margin-top: 100px;
+}
+.message{
+    background-color: rgb(206, 235, 207);
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+div .comment{
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.comment textarea{
+    background-color: rgb(172, 243, 172);
+}
+
+.comment-i{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom:10px;
+}
+
+textarea{
+    margin-bottom: 10px;
+}
+
+#nav-wall{
+    z-index: 10000;
+    position: fixed;
+    top: 0px;
+    width: 70%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    background-color: white;
+    border-bottom: 1px solid darkcyan;
+    padding-top: 40px;
+    margin-bottom: 5px;
+}
+
+.postedby-erase{
+    display: flex;
+}
+.msg-header:nth-child(2){
+    margin-left:auto;
+}
+.btn-erase-msg, .btn-erase-com{
+    width:80px;
+}
+
+.nav-it:nth-child(2){
+    margin-left: auto;
+    font-weight: 500;
+}
+.nav-it:nth-child(3){
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.nav-it:nth-child(4){
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .bodywidth70 {
+        width: 94%;
+        margin-left: 3%;
+    }
+
+    #nav-wall{
+        width: 94%;
+    }
+
+  }

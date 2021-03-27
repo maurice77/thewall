@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+   
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <title>Logged In!</title>
+</head>
+<body>
+    <h1>Login Succesful!</h1>
+    
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <p>(id: {{request.session.id}}) {{user.first_name}} {{user.last_name}} succesfully logged in!</p>
+
+    <a class="go-back" href="/login/signout">Sign Out</a>
+
+</body>
+</html>
