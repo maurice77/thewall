@@ -68,7 +68,7 @@ def postMessage(request):
         print("new message posted!")
         if "tipo" in request.POST: #armar el createdMessage
             createdMessage["id"] = newmessage.id
-            createdMessage["message"] = newmessage.message
+            createdMessage["message"] = (newmessage.message).replace("<","&lt").replace(">","&gt")
             user = {
                 "first_name":newmessage.user.first_name,
                 "last_name":newmessage.user.last_name,
@@ -92,8 +92,6 @@ def postComment(request):
     
     createdComment = {}
 
-    print(request.POST)
-
     if comment != "":    
         newcomment = Comment.objects.create(
             comment = comment,
@@ -103,7 +101,8 @@ def postComment(request):
         print("new comment posted!")
         if "tipo" in request.POST: #armar el createdComment
             createdComment["id"] = newcomment.id
-            createdComment["comment"] = newcomment.comment
+            
+            createdComment["comment"] = (newcomment.comment).replace("<","&lt").replace(">","&gt")
             user = {
                 "first_name":newcomment.user.first_name,
                 "last_name":newcomment.user.last_name,

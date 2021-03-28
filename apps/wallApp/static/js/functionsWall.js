@@ -67,9 +67,10 @@ function updateCreatedAt(){
 
         //devuelve messages y comments
         for (var key in response["messages"]){
-            console.log($("#span-msg-"+key))
+            //console.log($("#span-msg-"+key))
             //console.log(key + " - " + response.messages[key]["created_at"])
             $("#span-msg-"+key).text(response.messages[key]["created_at"])
+            //document.getElementById("span-msg-"+key).innerHTML = response.messages[key]["created_at"]
             if (response.messages[key]["minutes"] > 30){
                 if ( $( "#btn-delete-msg-"+key ).length ) {
                     document.getElementById("btn-delete-msg-"+key).remove();
@@ -78,6 +79,12 @@ function updateCreatedAt(){
                 $("#btn-delete-msg-"+key).show(); 
             }
         }
+        //misMessages = ($("[id^=span-msg]"))
+        //for (var i; misMessages.length; i++ ){
+        //    key = ""
+        //   misMessages[i].textContent = ""
+        //}
+
         for (var key in response["comments"]){
             //console.log(key + " - " + response.messages[key]["created_at"])
             $("#span-com-"+key).text(response.comments[key]["created_at"])
@@ -113,11 +120,11 @@ function postComment(idMsg){
     })
     .done( function(response){
         var size = Object.keys(response).length;
-
+        
         if (size > 0){
             txt =`<div id="divcomment-${response.id}" class="comment-i">
                     <div class="postedby-erase">
-                        <p class="posted_by msg-header">${response.user.first_name} ${response.user.last_name} - <span id="span-com-${response.id}}">Posteado hace menos de un minuto</span></p>   
+                        <p class="posted_by msg-header">${response.user.first_name} ${response.user.last_name} - <span id="span-com-${response.id}">Posteado hace menos de un minuto</span></p>   
                         <form action="/wall/delete_comment" id="form-com-${response.id}" method="POST" class="msg-header">
                             <input type="hidden" name="csrfmiddlewaretoken" value="${token}">
                             <button id="btn-delete-com-${response.id}"
@@ -164,7 +171,7 @@ function postMessage(){
 
             txt = `<div class="message" id="divmessage-${response.id}">
                 <div class="postedby-erase">
-                    <p class="posted_by msg-header">${response.user.first_name} ${response.user.last_name} - <span id="span-msg-${response.id}}">Posteado hace menos de un minuto</span></p>
+                    <p class="posted_by msg-header">${response.user.first_name} ${response.user.last_name} - <span id="span-msg-${response.id}">Posteado hace menos de un minuto</span></p>
                     <form action="/wall/delete_message" id="form-msg-${response.id}" method="POST" class="msg-header">
                         <input type="hidden" name="csrfmiddlewaretoken" value="${token}">
                         <input type="hidden" name="message_id" value="${response.id}">
